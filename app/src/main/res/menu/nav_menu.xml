@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/entries_mi"
+        android:icon="@drawable/entries_mi"
+        android:title="Entries"/>
+    <item
+        android:id="@+id/calender"
+        android:icon="@drawable/baseline_calendar"
+        android:title="Calender"/>
+    <item
+        android:id="@+id/reports"
+        android:icon="@drawable/baseline_bar_chart_24"
+        android:title="Reports"/>
+    <item
+        android:id="@+id/categories"
+        android:icon="@drawable/baseline_categories"
+        android:title="Categories"/>
+
+</menu>
