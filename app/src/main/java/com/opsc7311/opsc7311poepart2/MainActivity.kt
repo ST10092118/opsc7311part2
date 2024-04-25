@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.opsc7311.opsc7311poepart2.fragments.EntriesFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.opsc7311.opsc7311poepart2.fragments.ReportsFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,12 +19,14 @@ class MainActivity : AppCompatActivity() {
 
 
         val EntriesFragment = EntriesFragment()
+        val ReportsFragment = ReportsFragment()
 
         makeCurrentFragment(EntriesFragment)
 
         bottomNavigation.setOnNavigationItemSelectedListener{
             when(it.itemId){
                 R.id.entries_mi -> makeCurrentFragment(EntriesFragment)
+                R.id.reports -> makeCurrentFragment(ReportsFragment)
             }
             true
 
