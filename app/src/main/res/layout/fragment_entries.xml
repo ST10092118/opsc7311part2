@@ -3,17 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.EntriesFragment">
+    tools:context=".fragments.EntriesFragment">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/entries"
-        android:layout_centerInParent="true"/>
-   </RelativeLayout>
+        android:textSize="26dp"
+        android:layout_gravity="center"/>
 
 </FrameLayout>

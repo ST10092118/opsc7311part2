@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.utils.addToStdlib.ifTrue
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -24,6 +26,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        //added binding features
+        buildFeatures{
+            viewBinding = true
         }
     }
     compileOptions {
