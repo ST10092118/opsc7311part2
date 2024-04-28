@@ -51,6 +51,7 @@ dependencies {
     implementation("com.google.android.material:material:1.1.0")
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation ("com.github.shrikanth7698:Collapsible-Calendar-View-Android:v1.0.3")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
