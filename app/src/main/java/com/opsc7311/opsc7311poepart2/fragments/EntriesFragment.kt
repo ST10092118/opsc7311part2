@@ -35,7 +35,11 @@ class EntriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+<<<<<<< HEAD
+        return inflater.inflate(R.layout.fragment_home, container, false)
+=======
         return inflater.inflate(R.layout.fragment_entries, container, false)
+>>>>>>> origin/main
     }
 
     companion object {
@@ -45,7 +49,11 @@ class EntriesFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
+<<<<<<< HEAD
+         * @return A new instance of fragment HomeFragment.
+=======
          * @return A new instance of fragment Entries.
+>>>>>>> origin/main
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
