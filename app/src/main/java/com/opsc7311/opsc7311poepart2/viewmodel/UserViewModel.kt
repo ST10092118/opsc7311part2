@@ -1,71 +1,28 @@
 package com.opsc7311.opsc7311poepart2.viewmodel
 
+import android.content.Context
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
-import androidx.lifecycle.viewModelScope
-import com.opsc7311.opsc7311poepart2.database.Dao.UserDao
-import com.opsc7311.opsc7311poepart2.database.events.UserEvent
 import com.opsc7311.opsc7311poepart2.database.model.User
-import com.opsc7311.opsc7311poepart2.database.states.CategoryState
-import com.opsc7311.opsc7311poepart2.database.states.UserState
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
+import com.opsc7311.opsc7311poepart2.database.service.UserService
+import com.opsc7311.opsc7311poepart2.database.status.RegistrationStatus
 
-class UserViewModel(private val dao: UserDao): ViewModel() {
-    private val _state = MutableStateFlow(UserState())
+class UserViewModel: ViewModel() {
+    private val userService = UserService()
+    val status: MutableLiveData<Pair<RegistrationStatus, String>> = MutableLiveData()
 
-    fun onEvent(event: UserEvent){
-        when(event){
-            is UserEvent.registerUser -> {
-                val username = _state.value.username
-                val password = _state.value.username
+    fun registerUser(context: Context, username: String, email: String, password: String, callback: (RegistrationStatus, String) -> Unit) {
+        userService.registerUser(context, username, email, password) { registrationStatus, message ->
+            callback(registrationStatus, message)
+            status.postValue(Pair(registrationStatus, message))
+        }
+    }
 
-                if(username.isBlank() || password.isBlank()){
-                    return
-                }
-                val user = User(
-                    username = username,
-                    password = password
-                )
-                viewModelScope.launch{
-                    dao.registerUser(user)
-                }
-                _state.update {
-                    it.copy(
-                        isAddingUser = false,
-                        username = "",
-                        password = ""
-                    )
-                }
-            }
 
-            UserEvent.hideObject -> {
-                _state.update {
-                    it.copy(
-                        isAddingUser = false
-                    )
-                }
-            }
-            is UserEvent.setPassword -> {
-                _state.update {
-                    it.copy(
-                        password = event.password
-                    )
-                }
-            }
-            is UserEvent.setUsername -> {
-                _state.update {
-                    it.copy(
-                        username = event.username
-                    )
-                }
-            }
-            UserEvent.showDialog -> _state.update {
-                it.copy(
-                    isAddingUser = true
-                )
-            }
+    fun loginUser(context: Context, username: String, password: String, callback: (RegistrationStatus, String) -> Unit): User? {
+        return userService.login(context, username, password) { loginStatus, message ->
+            callback(loginStatus, message)
+            status.postValue(Pair(loginStatus, message))
         }
     }
 }
