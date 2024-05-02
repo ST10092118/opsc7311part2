@@ -223,7 +223,7 @@ class TimesheetEntryFragment : Fragment() {
     }
 
 
-    fun setDate(): String {
+    private fun setDate(): String {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         return dateFormat.format(calendar.time)
@@ -333,6 +333,18 @@ class TimesheetEntryFragment : Fragment() {
         Log.d("TaskDetails", data)
 
         if(name.isEmpty() || selectedCategory == null || timesheet_description.isEmpty()){
+            if(name.isEmpty()){
+                Toast.makeText(requireContext(), "Enter a timesheet name",
+                    Toast.LENGTH_SHORT).show();
+            }
+            if(selectedCategory == null){
+                Toast.makeText(requireContext(), "Enter a category",
+                    Toast.LENGTH_SHORT).show();
+            }
+            if(timesheet_description.isEmpty()){
+                Toast.makeText(requireContext(), "Enter a timesheet description",
+                    Toast.LENGTH_SHORT).show();
+            }
             return
         }
 
@@ -348,12 +360,24 @@ class TimesheetEntryFragment : Fragment() {
             if (status.first == RegistrationStatus.SUCCESS) {
                 Toast.makeText(requireContext(), status.second,
                     Toast.LENGTH_SHORT).show();
-                //redirectToCategories()
+                redirectToTimesheetEntries()
             } else {
                 Toast.makeText(requireContext(), status.second,
                     Toast.LENGTH_SHORT).show();            }
         }
     }
+
+    private fun redirectToTimesheetEntries() {
+        val timesheetEntriesFragment = EntriesFragment()
+
+
+        // Navigate to CategoryDetailsFragment
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_layout, timesheetEntriesFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
     private fun returnDate(dateString: String): Date {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         return dateFormat.parse(dateString) ?: Date()

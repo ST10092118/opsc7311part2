@@ -6,6 +6,7 @@ import java.util.Date
 data class Timesheet(
     val id: String = "",
     val name: String = "",
+    val description: String = "",
     val date: Date = Date(),
     val startTime: Long = 0,
     val endTime: Long = 0,
@@ -13,5 +14,5 @@ data class Timesheet(
     val categoryId: String = "",
     val userId: String = ""
 ){
-    constructor() : this("", "", Date(), 0, 0,"", "", "")
+    constructor() : this("", "", "", Date(), 0, 0,"", "", "")
 }

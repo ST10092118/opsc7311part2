@@ -11,6 +11,7 @@ import com.opsc7311.opsc7311poepart2.databinding.ActivityMainBinding
 import com.opsc7311.opsc7311poepart2.fragments.CalendarFragment
 import com.opsc7311.opsc7311poepart2.fragments.CategoriesFragment
 import com.opsc7311.opsc7311poepart2.fragments.EntriesFragment
+import com.opsc7311.opsc7311poepart2.fragments.GoalFragment
 import com.opsc7311.opsc7311poepart2.fragments.ReportsFragment
 
 class MainActivity : AppCompatActivity() {
@@ -47,9 +48,12 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.entries_mi -> makeCurrentFragment(EntriesFragment())
                 R.id.calender -> makeCurrentFragment(CalendarFragment())
-                R.id.reports -> makeCurrentFragment(ReportsFragment())
+                R.id.reports -> makeCurrentFragment(GoalFragment())
                 R.id.categories -> makeCurrentFragment(CategoriesFragment())
-                R.id.logout -> mAuth.signOut()
+                R.id.logout -> {
+                    mAuth.signOut()
+                    redirectToMain()
+                }
                 else -> {
                 }
             }
@@ -60,6 +64,11 @@ class MainActivity : AppCompatActivity() {
     private fun redirectToRegisterActivity() {
         startActivity(Intent(this, RegisterLoginActivity::class.java))
         finish() // Finish MainActivity so the user can't go back without logging in
+    }
+
+    private fun redirectToMain(){
+        startActivity(Intent(this, this::class.java))
+        finish()
     }
 
     private fun makeCurrentFragment(fragment: Fragment) {

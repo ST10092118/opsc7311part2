@@ -13,29 +13,56 @@ import com.opsc7311.opsc7311poepart2.database.status.RegistrationStatus
 class UserService {
     private val firebaseDatabase = FirebaseDatabase.getInstance().reference.child("Users")
     private val mAuth = FirebaseAuth.getInstance();
-    fun registerUser(context: Context, username: String, email: String, password: String, callback: (RegistrationStatus, String) -> Unit){
-        mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val currentUser = mAuth.currentUser
-                    currentUser?.let {
-                        val userId = it.uid
-                        val user =  User(userId, email, username, password)
-                        firebaseDatabase.child(userId).setValue(user)
+    fun registerUser(
+        context: Context,
+        username: String,
+        email: String,
+        password: String,
+        callback: (RegistrationStatus, String) -> Unit
+    ) {
+        // Check if the username already exists
+        firebaseDatabase.orderByChild("username").equalTo(username)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // Username already exists, return FAILURE status
+                        callback(RegistrationStatus.FAILURE, "Username already exists")
+                    } else {
+                        // Username does not exist, proceed with user registration
+                        mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    callback(RegistrationStatus.SUCCESS, "User Registered")
+                                    val currentUser = mAuth.currentUser
+                                    currentUser?.let {
+                                        val userId = it.uid
+                                        val user = User(userId, email, username, password)
+                                        firebaseDatabase.child(userId).setValue(user)
+                                            .addOnCompleteListener { task ->
+                                                if (task.isSuccessful) {
+                                                    callback(RegistrationStatus.SUCCESS, "User Registered")
+                                                } else {
+                                                    callback(
+                                                        RegistrationStatus.FAILURE,
+                                                        "${task.exception?.message}"
+                                                    )
+                                                }
+                                            }
+                                    }
                                 } else {
+                                    // Registration failed
                                     callback(RegistrationStatus.FAILURE, "${task.exception?.message}")
                                 }
                             }
                     }
-                } else {
-                    // Registration failed
-                    callback(RegistrationStatus.FAILURE, "${task.exception?.message}")
                 }
-            }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Handle database error if needed
+                    callback(RegistrationStatus.FAILURE, databaseError.message)
+                }
+            })
     }
+
 
     fun login(context: Context, username: String, password: String, callback: (RegistrationStatus, String) -> Unit): User?{
         var user: User? = null

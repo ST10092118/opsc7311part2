@@ -126,9 +126,12 @@ class CreateCategoryFragment : Fragment() {
         val name = categoryName.text.toString()
         val color = colorAdapter.getSelectedItem()?.let { colorName(it) }
 
-        if(name.isEmpty() || color == null){
-            if(name.isEmpty()) categoryName.error = "Enter a name"
-            if(color == null) Toast.makeText(requireContext(), "Select a color", Toast.LENGTH_SHORT).show();
+        if(name.isEmpty()) {
+            Toast.makeText(requireContext(), "Enter a category name", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if(color == null) {
+            Toast.makeText(requireContext(), "Select a color", Toast.LENGTH_SHORT).show()
             return
         }
         categoryViewModel.status.observe(viewLifecycleOwner){
@@ -151,11 +154,10 @@ class CreateCategoryFragment : Fragment() {
     private fun redirectToCategories() {
         val categoriesFragment = CategoriesFragment()
 
-
-        // Navigate to CategoryDetailsFragment
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.frame_layout, categoriesFragment)
             .addToBackStack(null)
-            .commit()    }
+            .commit()
+    }
 
 }

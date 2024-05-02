@@ -13,7 +13,7 @@ import com.opsc7311.opsc7311poepart2.database.model.Category
 import com.opsc7311.opsc7311poepart2.database.model.Timesheet
 import com.opsc7311.opsc7311poepart2.database.status.RegistrationStatus
 
-class TaskService {
+class TimesheetService {
     private val firebaseDatabase = FirebaseDatabase.getInstance().reference.child("Timesheets")
     private val mAuth = FirebaseAuth.getInstance();
     private val imageDb = Firebase.storage.reference.child("timesheetImages")
@@ -35,11 +35,11 @@ class TaskService {
                             val imageLink = downloadUrl.toString()
                             currentUser?.let {
                                 val userId = it.uid
-                                val newTimesheet =  Timesheet(id = timesheetId, name = timesheet.name, date = timesheet.date, startTime =  timesheet.startTime, endTime =  timesheet.endTime, image =  imageLink, categoryId =  timesheet.categoryId, userId = userId)
+                                val newTimesheet =  Timesheet(id = timesheetId, name = timesheet.name, description = timesheet.description, date = timesheet.date, startTime =  timesheet.startTime, endTime =  timesheet.endTime, image =  imageLink, categoryId =  timesheet.categoryId, userId = userId)
                                 firebaseDatabase.child(timesheetId).setValue(newTimesheet)
                                     .addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
-                                            callback(RegistrationStatus.SUCCESS, "Category created!!")
+                                            callback(RegistrationStatus.SUCCESS, "Timesheet created!!")
                                         } else {
                                             callback(RegistrationStatus.FAILURE, "${task.exception?.message}")
                                         }
@@ -50,11 +50,11 @@ class TaskService {
         }else{
             currentUser?.let {
                 val userId = it.uid
-                val newTimesheet =  Timesheet(id = timesheetId, name = timesheet.name, date = timesheet.date, startTime =  timesheet.startTime, endTime =  timesheet.endTime, image =  "", categoryId =  timesheet.categoryId, userId = userId)
+                val newTimesheet =  Timesheet(id = timesheetId, name = timesheet.name, description = timesheet.description, date = timesheet.date, startTime =  timesheet.startTime, endTime =  timesheet.endTime, image =  "", categoryId =  timesheet.categoryId, userId = userId)
                 firebaseDatabase.child(timesheetId).setValue(newTimesheet)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            callback(RegistrationStatus.SUCCESS, "Category created!!")
+                            callback(RegistrationStatus.SUCCESS, "Timesheet created!!")
                         } else {
                             callback(RegistrationStatus.FAILURE, "${task.exception?.message}")
                         }
@@ -63,18 +63,6 @@ class TaskService {
         }
 
 
-        currentUser?.let {
-            val userId = it.uid
-            val newTimesheet =  Timesheet(timesheetId, timesheet.name, timesheet.date, timesheet.startTime, timesheet.endTime, userId)
-            firebaseDatabase.child(timesheetId).setValue(newTimesheet)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        callback(RegistrationStatus.SUCCESS, "Category created!!")
-                    } else {
-                        callback(RegistrationStatus.FAILURE, "${task.exception?.message}")
-                    }
-                }
-        }
     }
 
     fun getTimesheetEntries(callback: (List<Pair<Timesheet, Category>>) -> Unit){
@@ -88,15 +76,13 @@ class TaskService {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         val timesheets = mutableListOf<Timesheet>()
                         for (snapshot in dataSnapshot.children) {
-                            val task = snapshot.getValue(Timesheet::class.java)
-                            task?.let { timesheets.add(it) }
+                            val timesheet = snapshot.getValue(Timesheet::class.java)
+                            timesheet?.let { timesheets.add(it) }
                         }
 
-                        if (timesheets.isNotEmpty()) { // Check if tasks list is not empty
-                            // Fetch categories for each task
+                        if (timesheets.isNotEmpty()) {
 
                             val categoryDatabase = FirebaseDatabase.getInstance().reference.child("Categories")
-                            val categoryIds = timesheets.map { it.categoryId }
                             categoryDatabase.orderByChild("userId").equalTo(userId)
                                 .addListenerForSingleValueEvent(object : ValueEventListener {
                                     override fun onDataChange(categorySnapshot: DataSnapshot) {

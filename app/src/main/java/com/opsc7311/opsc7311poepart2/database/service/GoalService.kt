@@ -14,11 +14,11 @@ class GoalService {
     private val mAuth = FirebaseAuth.getInstance();
 
     fun createNewGoal(minimum: Int, maximum: Int, callback: (RegistrationStatus, String) -> Unit){
-        val categoryId = firebaseDatabase.push().key!!
+        val goalId = firebaseDatabase.push().key!!
         val currentUser = mAuth.currentUser
         currentUser?.let {
             val userId = it.uid
-            val goal =  Goal(categoryId, minimum, maximum, userId)
+            val goal =  Goal(goalId, minimum, maximum, userId)
             firebaseDatabase.child(userId).setValue(goal)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
