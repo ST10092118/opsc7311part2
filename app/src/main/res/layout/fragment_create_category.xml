@@ -27,7 +27,7 @@
             android:id="@+id/category_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/input_style"
+            android:background="@drawable/input_main"
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
             android:layout_marginTop="16dp"
@@ -59,7 +59,7 @@
             android:padding="2dp"
             android:clickable="true"
             android:focusable="true"
-            android:background="@drawable/input_style">
+            android:background="@drawable/input_main">
 
             <FrameLayout
                 android:id="@+id/color_frame"

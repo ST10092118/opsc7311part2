@@ -6,14 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.opsc7311.opsc7311poepart2.R
 import com.opsc7311.opsc7311poepart2.adapters.CategoriesAdapter
 import com.opsc7311.opsc7311poepart2.database.model.Category
+import com.opsc7311.opsc7311poepart2.database.service.CategoryService
+import com.opsc7311.opsc7311poepart2.database.status.RegistrationStatus
+import com.opsc7311.opsc7311poepart2.viewmodel.CategoryViewModel
 
 
 class CategoriesFragment : Fragment() {
+    private val categoryViewModel: CategoryViewModel by viewModels()
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var navigateToAddCategory: FrameLayout
 
@@ -60,7 +67,14 @@ class CategoriesFragment : Fragment() {
     }
 
     private fun getAllCategories(){
+        categoryViewModel._categories.observe(viewLifecycleOwner){
+                categories ->
+            categoriesAdapter.updateData(categories)
+        }
 
+        //Log.d("Tag", "name: $name color: \n$color")
+
+        categoryViewModel.getCategories()
 
         categoriesAdapter.updateData(categoryList)
     }

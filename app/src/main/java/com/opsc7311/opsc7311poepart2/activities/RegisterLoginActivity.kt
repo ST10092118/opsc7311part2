@@ -28,4 +28,8 @@ class RegisterLoginActivity : AppCompatActivity() {
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
     }
+    fun switchToLoginTab() {
+        val viewPager: ViewPager = findViewById(R.id.view_pager)
+        viewPager.currentItem = 0 // Index 0 corresponds to the "Login" tab
+    }
 }

@@ -2,6 +2,7 @@ package com.opsc7311.opsc7311poepart2.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,23 +14,19 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.opsc7311.opsc7311poepart2.R
 import com.opsc7311.opsc7311poepart2.adapters.ColorAdapter
+import com.opsc7311.opsc7311poepart2.database.status.RegistrationStatus
+import com.opsc7311.opsc7311poepart2.viewmodel.CategoryViewModel
+import com.opsc7311.opsc7311poepart2.viewmodel.UserViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CreateCategoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CreateCategoryFragment : Fragment() {
+    private val categoryViewModel: CategoryViewModel by viewModels()
 
     private lateinit var recyclerView: RecyclerView
 
@@ -126,8 +123,39 @@ class CreateCategoryFragment : Fragment() {
         colorPickerDialog.show()
     }
     fun addCategory(){
-        Toast.makeText(requireContext(), "add category button pressed", Toast.LENGTH_SHORT).show()
+        val name = categoryName.text.toString()
+        val color = colorAdapter.getSelectedItem()?.let { colorName(it) }
+
+        if(name.isEmpty() || color == null){
+            if(name.isEmpty()) categoryName.error = "Enter a name"
+            if(color == null) Toast.makeText(requireContext(), "Select a color", Toast.LENGTH_SHORT).show();
+            return
+        }
+        categoryViewModel.status.observe(viewLifecycleOwner){
+                status ->
+            if (status.first == RegistrationStatus.SUCCESS) {
+                Toast.makeText(requireContext(), status.second,
+                    Toast.LENGTH_SHORT).show();
+                redirectToCategories()
+            } else {
+                Toast.makeText(requireContext(), status.second,
+                    Toast.LENGTH_SHORT).show();            }
+        }
+
+        //Log.d("Tag", "name: $name color: \n$color")
+
+        categoryViewModel.createNewCategory(name, color)
 
     }
+
+    private fun redirectToCategories() {
+        val categoriesFragment = CategoriesFragment()
+
+
+        // Navigate to CategoryDetailsFragment
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_layout, categoriesFragment)
+            .addToBackStack(null)
+            .commit()    }
 
 }

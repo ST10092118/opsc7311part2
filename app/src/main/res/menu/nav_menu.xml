@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/entries_mi"
-        android:icon="@drawable/entries_mi"
+        android:icon="@drawable/baseline_access_time"
         android:title="Entries"/>
     <item
         android:id="@+id/calender"
@@ -17,5 +17,10 @@
         android:id="@+id/categories"
         android:icon="@drawable/baseline_categories"
         android:title="Categories"/>
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/baseline_logout_24"
+        android:title="Logout"/>
 
 </menu>

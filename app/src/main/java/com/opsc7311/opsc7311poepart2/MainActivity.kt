@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        mAuth.signOut()
+        //mAuth.signOut()
         //Default homepage/fragment when app launches
         val isLoggedIn = checkLoginStatus()
 
@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.calender -> makeCurrentFragment(CalendarFragment())
                 R.id.reports -> makeCurrentFragment(ReportsFragment())
                 R.id.categories -> makeCurrentFragment(CategoriesFragment())
+                R.id.logout -> mAuth.signOut()
                 else -> {
                 }
             }

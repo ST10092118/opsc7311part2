@@ -51,6 +51,14 @@ class ColorAdapter(private val colorList: ArrayList<Int>,
         holder.colorLayout.setBackgroundColor(color)
     }
 
+    fun getSelectedItem(): Int? {
+        return if (selectedItemPosition != RecyclerView.NO_POSITION) {
+            colorList[selectedItemPosition]
+        } else {
+            null
+        }
+    }
+
     inner class ColorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val colorLayout: LinearLayout = itemView.findViewById(R.id.color_layout)
 

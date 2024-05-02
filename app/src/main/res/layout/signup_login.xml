@@ -57,7 +57,7 @@
                     android:paddingEnd="15dp"
                     android:text="Sign up"
                     android:textAlignment="center"
-                    android:textColor="@color/orange"
+                    android:textColor="@color/primary"
                     android:textSize="16sp"
                     android:textStyle="bold|normal" />
 
@@ -128,7 +128,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="17sp"
-                app:backgroundTint="@color/orange"
+                app:backgroundTint="@color/primary"
                 app:shapeAppearanceOverlay="@style/Button5" />
 
         </LinearLayout>

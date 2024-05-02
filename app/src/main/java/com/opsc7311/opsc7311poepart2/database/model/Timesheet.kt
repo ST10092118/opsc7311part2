@@ -9,8 +9,9 @@ data class Timesheet(
     val date: Date = Date(),
     val startTime: Long = 0,
     val endTime: Long = 0,
+    val image: String = "",
     val categoryId: String = "",
     val userId: String = ""
 ){
-    constructor() : this("", "", Date(), 0, 0,"", "")
+    constructor() : this("", "", Date(), 0, 0,"", "", "")
 }
