@@ -350,7 +350,7 @@ class TimesheetEntryFragment : Fragment() {
 
         val timesheet = Timesheet(
             id = "", name= name, date = returnDate(selectedDate), startTime = returnLong(time_start),
-            endTime = returnLong(time_end), image ="", categoryId = selectedCategory.id, userId = ""
+            endTime = returnLong(time_end), image ="", description = timesheet_description, categoryId = selectedCategory.id, userId = ""
         )
 
         viewModel.createNewTimesheet(selectedImageUri, timesheet)
