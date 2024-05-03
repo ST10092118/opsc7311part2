@@ -5,10 +5,10 @@
         android:id="@+id/entries_mi"
         android:icon="@drawable/baseline_access_time"
         android:title="Entries"/>
-    <item
-        android:id="@+id/calender"
-        android:icon="@drawable/baseline_calendar"
-        android:title="Calender"/>
+<!--    <item-->
+<!--        android:id="@+id/calender"-->
+<!--        android:icon="@drawable/baseline_calendar"-->
+<!--        android:title="Calender"/>-->
     <item
         android:id="@+id/reports"
         android:icon="@drawable/baseline_bar_chart_24"
