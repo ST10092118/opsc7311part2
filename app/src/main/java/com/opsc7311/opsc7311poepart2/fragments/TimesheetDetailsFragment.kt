@@ -49,6 +49,10 @@ class TimesheetDetailsFragment : Fragment() {
         endTextView = view.findViewById(R.id.end_time_textview)
         image = view.findViewById(R.id.saved_image)
 
+        // This function was adapted from stackoverflow
+        // https://stackoverflow.com/questions/46551228/how-to-pass-and-get-value-from-fragment-and-activity
+        // Ankit Kumar
+        // https://stackoverflow.com/users/3282461/ankit-kumar
         val catName = arguments?.getString("category")
         val catColor = arguments?.getString("color")
         val timesheetName = arguments?.getString("timesheetName")
@@ -75,7 +79,10 @@ class TimesheetDetailsFragment : Fragment() {
 
         category.setTextColor(color)
 
-
+        // This image retrieval was adapted from medium
+        // https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547
+        // Vlonjat Gashi
+        // https://medium.com/@vlonjatgashi
         Glide.with(this@TimesheetDetailsFragment)
             .load(imageVal)
             .into(image)

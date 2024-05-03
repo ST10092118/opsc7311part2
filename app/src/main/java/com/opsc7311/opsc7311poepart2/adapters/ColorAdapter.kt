@@ -14,6 +14,11 @@ class ColorAdapter(private val colorList: ArrayList<Int>,
                    private val onColorClick: (Int) -> Unit):
     RecyclerView.Adapter<ColorAdapter.ColorViewHolder>()
 {
+    // This class was adapted from Youtube
+    // https://www.youtube.com/watch?v=E3x6pCZutLA&t=140s
+    // Smartherd
+    // https://www.youtube.com/@smartherd
+
     private var selectedItemPosition = RecyclerView.NO_POSITION
     private var selectedColor: Int? = null
 

@@ -14,6 +14,10 @@ class CategoryService {
     private val mAuth = FirebaseAuth.getInstance();
 
     fun createNewCategory(name: String, color: String, callback: (RegistrationStatus, String) -> Unit){
+        // This function was adapted from YouTube
+        // https://www.youtube.com/watch?v=pLnhnHwLkYo
+        // Android Knowledge
+        // https://www.youtube.com/@android_knowledge
         val categoryId = firebaseDatabase.push().key!!
         val currentUser = mAuth.currentUser
         currentUser?.let {
@@ -31,6 +35,10 @@ class CategoryService {
     }
 
     fun getCategories(callback: (List<Category>) -> Unit){
+        // This function was adapted from medium
+        // https://medium.com/a-practical-guide-to-firebase-on-android/storing-and-retrieving-data-from-firebase-with-kotlin-on-android-91c36680771
+        // Nick Skelton
+        // https://medium.com/@nickskelton
         val categories = mutableListOf<Category>()
         val currentUser = mAuth.currentUser
         currentUser?.let {

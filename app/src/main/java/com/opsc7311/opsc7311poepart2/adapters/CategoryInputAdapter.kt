@@ -13,6 +13,10 @@ import com.opsc7311.opsc7311poepart2.database.model.Category
 
 class CategoryInputAdapter( private val onItemClick: (Category) -> Unit ) :
     RecyclerView.Adapter<CategoryInputAdapter.CategoryViewHolder>() {
+    /// This class was adapted from Youtube
+    // https://www.youtube.com/watch?v=E3x6pCZutLA&t=140s
+    // Smartherd
+    // https://www.youtube.com/@smartherd
 
     private var categoryList = mutableListOf<Category>()
     private val colorMap = mapOf(

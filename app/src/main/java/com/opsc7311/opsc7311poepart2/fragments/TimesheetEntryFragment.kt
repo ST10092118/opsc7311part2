@@ -356,7 +356,12 @@ class TimesheetEntryFragment : Fragment() {
         viewModel.createNewTimesheet(selectedImageUri, timesheet)
 
         viewModel.status.observe(viewLifecycleOwner){
-                status ->
+            // This method was adapted from stackoverflow
+            // https://stackoverflow.com/questions/59521691/use-viewlifecycleowner-as-the-lifecycleowner
+            // CommonsWare
+            // https://stackoverflow.com/users/115145/commonsware
+
+            status ->
             if (status.first == RegistrationStatus.SUCCESS) {
                 Toast.makeText(requireContext(), status.second,
                     Toast.LENGTH_SHORT).show();

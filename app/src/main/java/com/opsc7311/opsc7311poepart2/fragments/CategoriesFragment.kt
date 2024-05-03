@@ -67,6 +67,11 @@ class CategoriesFragment : Fragment() {
     }
 
     private fun getAllCategories(){
+        // This method was adapted from stackoverflow
+        // https://stackoverflow.com/questions/59521691/use-viewlifecycleowner-as-the-lifecycleowner
+        // CommonsWare
+        // https://stackoverflow.com/users/115145/commonsware
+
         categoryViewModel._categories.observe(viewLifecycleOwner){
                 categories ->
             categoriesAdapter.updateData(categories)

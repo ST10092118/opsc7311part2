@@ -13,6 +13,9 @@ import com.opsc7311.opsc7311poepart2.fragments.LoginFragment
 import com.opsc7311.opsc7311poepart2.fragments.RegisterFragment
 
 class RegisterLoginActivity : AppCompatActivity() {
+    // This fragment was adapted from Lua Software Code
+    // https://code.luasoftware.com/tutorials/android/setup-android-viewpager2-with-tablayout-and-fragment
+    // Desmond Lua
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

@@ -21,6 +21,11 @@ class UserService {
         callback: (RegistrationStatus, String) -> Unit
     ) {
         // Check if the username already exists
+
+        // This function was adapted from YouTube
+        // https://www.youtube.com/watch?v=H_maapn4Q3Q
+        // TECH_WORLD
+        // https://www.youtube.com/@tech_world_tutorials
         firebaseDatabase.orderByChild("username").equalTo(username)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -65,6 +70,10 @@ class UserService {
 
 
     fun login(context: Context, username: String, password: String, callback: (RegistrationStatus, String) -> Unit): User?{
+        // This function was adapted from medium
+        // https://medium.com/a-practical-guide-to-firebase-on-android/storing-and-retrieving-data-from-firebase-with-kotlin-on-android-91c36680771
+        // Nick Skelton
+        // https://medium.com/@nickskelton
         var user: User? = null
         firebaseDatabase.orderByChild("username").equalTo(username)
             .addListenerForSingleValueEvent(object : ValueEventListener {

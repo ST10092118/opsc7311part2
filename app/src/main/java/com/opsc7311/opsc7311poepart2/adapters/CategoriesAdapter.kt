@@ -13,6 +13,11 @@ import com.opsc7311.opsc7311poepart2.database.model.Category
 
 class CategoriesAdapter:
     RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
+    // This class was adapted from Youtube
+    // https://www.youtube.com/watch?v=E3x6pCZutLA&t=140s
+    // Smartherd
+    // https://www.youtube.com/@smartherd
+
 
     private var categories = mutableListOf<Category>()
 

@@ -86,6 +86,10 @@ class EntriesFragment : Fragment() {
     }
 
     private fun redirectToDetails(timesheet: Timesheet, category: Category) {
+        // This function was adapted from stackoverflow
+        // https://stackoverflow.com/questions/46551228/how-to-pass-and-get-value-from-fragment-and-activity
+        // Ankit Kumar
+        // https://stackoverflow.com/users/3282461/ankit-kumar
         val bundle = Bundle().apply {
             putString("category", category.name)
             putString("color", category.color)
@@ -108,11 +112,6 @@ class EntriesFragment : Fragment() {
             .addToBackStack(null)
             .commit()
     }
-    fun formatDate(timestamp: Long): String {
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        val date = Date(timestamp)
-        return dateFormat.format(date)
-    }
 
     fun formatTime(timestamp: Long): String {
         val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
@@ -130,19 +129,18 @@ class EntriesFragment : Fragment() {
     }
     private fun getTimesheetEntries(){
         timesheetViewModel._timesheets.observe(viewLifecycleOwner){
-                timesheetEntries ->
+            // This method was adapted from stackoverflow
+            // https://stackoverflow.com/questions/59521691/use-viewlifecycleowner-as-the-lifecycleowner
+            // CommonsWare
+            // https://stackoverflow.com/users/115145/commonsware
+
+            timesheetEntries ->
             timesheetEntriesAdapter.updateData(timesheetEntries)
             setTimesheetEntries(timesheetEntries)
         }
 
         timesheetViewModel.getTimesheetEntries()
 
-    }
-
-    private fun setDate(): String {
-        val calendar = Calendar.getInstance()
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        return dateFormat.format(calendar.time)
     }
 
     private fun showDatePickerDialog() {

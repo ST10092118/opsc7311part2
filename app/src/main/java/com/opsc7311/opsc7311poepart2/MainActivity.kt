@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigation() {
+        // This function was adapted from Youtube
+        // https://www.youtube.com/watch?v=Chso6xrJ6aU
+        // Stevdza-San
+        // https://www.youtube.com/@StevdzaSan
+
         // Default homepage/fragment when app launches
         makeCurrentFragment(EntriesFragment())
 

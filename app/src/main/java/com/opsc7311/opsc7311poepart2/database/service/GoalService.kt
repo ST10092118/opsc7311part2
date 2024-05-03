@@ -14,6 +14,10 @@ class GoalService {
     private val mAuth = FirebaseAuth.getInstance();
 
     fun createNewGoal(minimum: Int, maximum: Int, callback: (RegistrationStatus, String) -> Unit){
+        // This function was adapted from YouTube
+        // https://www.youtube.com/watch?v=pLnhnHwLkYo
+        // Android Knowledge
+        // https://www.youtube.com/@android_knowledge
         val goalId = firebaseDatabase.push().key!!
         val currentUser = mAuth.currentUser
         currentUser?.let {
@@ -31,6 +35,10 @@ class GoalService {
     }
 
     fun getGoal(callback: (Goal?) -> Unit){
+        // This function was adapted from medium
+        // https://medium.com/a-practical-guide-to-firebase-on-android/storing-and-retrieving-data-from-firebase-with-kotlin-on-android-91c36680771
+        // Nick Skelton
+        // https://medium.com/@nickskelton
         val currentUser = mAuth.currentUser
         currentUser?.let {
             val userId = it.uid

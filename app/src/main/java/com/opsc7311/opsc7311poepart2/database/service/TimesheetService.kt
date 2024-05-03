@@ -20,6 +20,11 @@ class TimesheetService {
 
 
     fun createNewTimesheet(image: Uri?, timesheet: Timesheet, callback: (RegistrationStatus, String) -> Unit){
+        // This function was adapted from YouTube
+        // https://www.youtube.com/watch?v=pLnhnHwLkYo
+        // Android Knowledge
+        // https://www.youtube.com/@android_knowledge
+
         val timesheetId = firebaseDatabase.push().key!!
         val currentUser = mAuth.currentUser
 
@@ -66,6 +71,10 @@ class TimesheetService {
     }
 
     fun getTimesheetEntries(callback: (List<Pair<Timesheet, Category>>) -> Unit){
+        // This function was adapted from medium
+        // https://medium.com/a-practical-guide-to-firebase-on-android/storing-and-retrieving-data-from-firebase-with-kotlin-on-android-91c36680771
+        // Nick Skelton
+        // https://medium.com/@nickskelton
         val timesheetEntries = mutableListOf<Pair<Timesheet, Category>>()
         val currentUser = mAuth.currentUser
         currentUser?.let {

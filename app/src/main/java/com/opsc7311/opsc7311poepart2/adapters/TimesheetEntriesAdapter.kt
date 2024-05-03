@@ -18,6 +18,11 @@ import java.util.Date
 import java.util.Locale
 
 class TimesheetEntriesAdapter(private val onItemClick: (Timesheet, Category) -> Unit) : RecyclerView.Adapter<TimesheetEntriesAdapter.ViewHolder>() {
+    // This class was adapted from Youtube
+    // https://www.youtube.com/watch?v=E3x6pCZutLA&t=140s
+    // Smartherd
+    // https://www.youtube.com/@smartherd
+
     private val timesheetEntries = mutableListOf<Pair<Timesheet, Category>>()
 
     private val colorMap = mapOf(
