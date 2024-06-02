@@ -14,4 +14,7 @@ repositories {
     maven {
         url = uri("https://jitpack.io")
     }
+    mavenCentral()
+    // Or use Maven Central if the library is hosted there
+    //mavenCentral()
 }

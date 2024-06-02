@@ -140,7 +140,6 @@ class EntriesFragment : Fragment() {
         }
 
         timesheetViewModel.getTimesheetEntries()
-
     }
 
     private fun showDatePickerDialog() {

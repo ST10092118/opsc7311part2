@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.entries_mi -> makeCurrentFragment(EntriesFragment())
-                //R.id.calender -> makeCurrentFragment(CalendarFragment())
+                R.id.calender -> makeCurrentFragment(CalendarFragment())
                 R.id.reports -> makeCurrentFragment(GoalFragment())
                 R.id.categories -> makeCurrentFragment(CategoriesFragment())
                 R.id.logout -> {
