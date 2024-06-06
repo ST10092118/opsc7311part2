@@ -1,6 +1,7 @@
 package com.opsc7311.opsc7311poepart2.database.service
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -100,5 +101,23 @@ class UserService {
                 }
             })
         return user
+    }
+    fun fetchAllUsers(callback: (List<User>, String) -> Unit) {
+        firebaseDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val users = mutableListOf<User>()
+                for (snapshot in dataSnapshot.children) {
+                    val user = snapshot.getValue(User::class.java)
+                    if (user != null) {
+                        users.add(user)
+                    }
+                }
+                callback(users, "")
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                callback(emptyList(), databaseError.message)
+            }
+        })
     }
 }

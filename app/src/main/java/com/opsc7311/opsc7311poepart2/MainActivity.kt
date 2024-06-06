@@ -12,6 +12,7 @@ import com.opsc7311.opsc7311poepart2.fragments.CalendarFragment
 import com.opsc7311.opsc7311poepart2.fragments.CategoriesFragment
 import com.opsc7311.opsc7311poepart2.fragments.EntriesFragment
 import com.opsc7311.opsc7311poepart2.fragments.GoalFragment
+import com.opsc7311.opsc7311poepart2.fragments.LeaderboardFragment
 import com.opsc7311.opsc7311poepart2.fragments.ReportsFragment
 
 class MainActivity : AppCompatActivity() {
@@ -53,8 +54,9 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.entries_mi -> makeCurrentFragment(EntriesFragment())
                 R.id.calender -> makeCurrentFragment(CalendarFragment())
-                R.id.reports -> makeCurrentFragment(GoalFragment())
+                //R.id.reports -> makeCurrentFragment(GoalFragment())
                 R.id.categories -> makeCurrentFragment(CategoriesFragment())
+                R.id.reports -> makeCurrentFragment(LeaderboardFragment())
                 R.id.logout -> {
                     mAuth.signOut()
                     redirectToMain()

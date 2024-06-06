@@ -134,4 +134,23 @@ class TimesheetService {
         }
 
     }
+    fun getTimesheetByUserId(userId: String, onComplete: (List<Timesheet>) -> Unit) {
+        firebaseDatabase.orderByChild("userId").equalTo(userId).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val timesheetEntries = mutableListOf<Timesheet>()
+                for (snapshot in dataSnapshot.children) {
+                    val timesheet = snapshot.getValue(Timesheet::class.java)
+                    if (timesheet != null) {
+                        timesheetEntries.add(timesheet)
+                    }
+                }
+                onComplete(timesheetEntries)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("TaskDatabaseSource", "Error getting tasks: ", databaseError.toException())
+                onComplete(emptyList())
+            }
+        })
+    }
 }
