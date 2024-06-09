@@ -27,10 +27,11 @@
             android:id="@+id/category_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/input_main"
+            android:background="@drawable/input_fields"
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
             android:layout_marginTop="16dp"
+            android:hint="Enter a timesheet name"
             />
     </LinearLayout>
 
@@ -59,7 +60,7 @@
             android:padding="2dp"
             android:clickable="true"
             android:focusable="true"
-            android:background="@drawable/input_main">
+            android:background="@drawable/input_fields">
 
             <FrameLayout
                 android:id="@+id/color_frame"

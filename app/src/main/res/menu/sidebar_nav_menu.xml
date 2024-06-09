@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
     <item
-        android:id="@+id/reports"
+        android:id="@+id/leaderboard"
         android:icon="@drawable/baseline_bar_chart_24"
-        android:title="Entries"/>
+        android:title="Leaderboard"/>
 
     <item
         android:id="@+id/calender"
@@ -12,19 +14,13 @@
         android:title="Entries"/>
 
     <item
-        android:id="@+id/create"
-        android:icon="@drawable/baseline_add_24"
-        android:title="Reports"/>
+        android:id="@+id/goal"
+        android:icon="@drawable/baseline_access_time"
+        android:title="Goal"/>
     <item
         android:id="@+id/categories"
         android:icon="@drawable/baseline_categories"
         android:title="Categories"/>
 
-
-
-    <item
-        android:id="@+id/logout"
-        android:icon="@drawable/baseline_logout_24"
-        android:title="Logout"/>
 
 </menu>

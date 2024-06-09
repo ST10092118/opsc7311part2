@@ -64,7 +64,10 @@ class CalendarFragment : Fragment() {
 
 
 
-        calAdapter = CalenderAdapter()
+        calAdapter = CalenderAdapter{
+                timesheet, category ->
+            redirectToDetails(timesheet, category)
+        }
         tasksRecyclerView.adapter = calAdapter
 
         getTimesheetEntries()
@@ -87,6 +90,34 @@ class CalendarFragment : Fragment() {
 
         timesheetViewModel.getTimesheetEntries()
 
+    }
+
+    private fun redirectToDetails(timesheet: Timesheet, category: Category) {
+        // This function was adapted from stackoverflow
+        // https://stackoverflow.com/questions/46551228/how-to-pass-and-get-value-from-fragment-and-activity
+        // Ankit Kumar
+        // https://stackoverflow.com/users/3282461/ankit-kumar
+        val bundle = Bundle().apply {
+            putString("category", category.name)
+            putString("color", category.color)
+            putString("timesheetName", timesheet.name)
+            putString("description", timesheet.description)
+            putString("date", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(timesheet.date))
+            putString("startTime", formatTime(timesheet.startTime))
+            putString("endTime", formatTime(timesheet.endTime))
+            putString("image", timesheet.image)
+            // Add other data as needed
+        }
+        // Navigate to CategoryDetailsFragment
+        val detailsFragment = TimesheetDetailsFragment().apply {
+            arguments = bundle
+        }
+
+// Navigate to CategoryDetailsFragment
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_layout, detailsFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun filter(date: Date) {
@@ -150,5 +181,10 @@ class CalendarFragment : Fragment() {
     private fun setTimesheetEntries(timesheetEntries: List<Pair<Timesheet, Category>>){
         timesheets.clear()
         timesheets.addAll(timesheetEntries)
+    }
+    fun formatTime(timestamp: Long): String {
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+        val date = Date(timestamp)
+        return timeFormat.format(date)
     }
 }

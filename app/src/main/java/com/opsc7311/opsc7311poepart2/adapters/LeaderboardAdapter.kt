@@ -12,6 +12,8 @@ import com.opsc7311.opsc7311poepart2.R
 import com.opsc7311.opsc7311poepart2.database.model.Category
 import com.opsc7311.opsc7311poepart2.database.model.Timesheet
 import com.opsc7311.opsc7311poepart2.database.model.User
+import com.opsc7311.opsc7311poepart2.fragments.GoalFragment
+import com.opsc7311.opsc7311poepart2.fragments.LeaderboardFragment
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -64,6 +66,11 @@ class LeaderboardAdapter : RecyclerView.Adapter<LeaderboardAdapter.ViewHolder>()
         val timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds)
         holder.time.text = timeString
 
+        when(position){
+            0 -> holder.username.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.yellow))
+            1 -> holder.username.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.blue))
+            2 -> holder.username.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.purple))
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

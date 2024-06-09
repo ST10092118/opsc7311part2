@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class CalenderAdapter() : RecyclerView.Adapter<CalenderAdapter.TaskViewHolder>() {
+class CalenderAdapter(private val onItemClick: (Timesheet, Category) -> Unit) : RecyclerView.Adapter<CalenderAdapter.TaskViewHolder>() {
 // This class was adapted from Youtube
     // https://www.youtube.com/watch?v=E3x6pCZutLA&t=140s
     // Smartherd
@@ -79,7 +79,9 @@ class CalenderAdapter() : RecyclerView.Adapter<CalenderAdapter.TaskViewHolder>()
             holder.colorFrame.background = shapeDrawable
         }
 
-
+        holder.itemView.setOnClickListener {
+            onItemClick(timesheet, category)
+        }
     }
 
     override fun getItemCount(): Int {

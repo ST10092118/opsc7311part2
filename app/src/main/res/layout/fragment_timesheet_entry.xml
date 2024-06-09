@@ -11,7 +11,7 @@
         android:id="@+id/timesheet_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/input_main"
+        android:background="@drawable/input_fields"
         android:paddingHorizontal="12dp"
         android:paddingVertical="4dp"
         android:layout_marginTop="20dp"
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@drawable/input_main"
+            android:background="@drawable/input_fields"
             android:gravity="center"
             android:layout_marginEnd="10dp"
             android:clickable="true"
@@ -53,7 +53,7 @@
             android:gravity="center_vertical"
             android:clickable="true"
             android:focusable="true"
-            android:background="@drawable/input_main">
+            android:background="@drawable/input_fields">
 
             <FrameLayout
                 android:id="@+id/color_frame"
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:background="@drawable/input_main"
+                android:background="@drawable/input_fields"
                 android:gravity="center"
                 android:clickable="true"
                 android:focusable="true">
@@ -131,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:background="@drawable/input_main"
+                android:background="@drawable/input_fields"
                 android:gravity="center"
                 android:clickable="true"
                 android:focusable="true">
@@ -154,7 +154,7 @@
         android:layout_marginTop="40dp"
         android:paddingHorizontal="12dp"
         android:paddingVertical="4dp"
-        android:background="@drawable/input_main"
+        android:background="@drawable/input_fields"
         android:minLines="4"
         android:maxLines="10"
         android:scrollbars="vertical"
