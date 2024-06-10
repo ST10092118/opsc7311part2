@@ -51,7 +51,6 @@ The gamififcation featured added was a leaderboard that allows for competition a
 
 
 
-![Screenshot 2024-06-10 194608](https://github.com/ST10092118/opsc7311part2/assets/130764382/214ef51e-47cc-4149-9cee-e74df61809a9) 
 
 
 
