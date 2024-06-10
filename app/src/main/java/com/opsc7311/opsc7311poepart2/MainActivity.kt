@@ -12,7 +12,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.opsc7311.opsc7311poepart2.activities.RegisterDemoActivity
+import com.opsc7311.opsc7311poepart2.fragments.PomodoroFragment
+import com.opsc7311.opsc7311poepart2.fragments.PomodoroTimesheetFragment
 import com.opsc7311.opsc7311poepart2.activities.RegisterLoginActivity
 import com.opsc7311.opsc7311poepart2.databinding.ActivityMainBinding
 import com.opsc7311.opsc7311poepart2.fragments.CalendarFragment
@@ -123,6 +124,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navigation_tasks ->  makeCurrentFragment(EntriesFragment())
             R.id.navigation_calendar -> makeCurrentFragment(CalendarFragment())
             R.id.navigation_categories -> makeCurrentFragment(CategoriesFragment())
+            R.id.navigation_pomodoro -> makeCurrentFragment(PomodoroTimesheetFragment())
             R.id.navigation_goal -> makeCurrentFragment(GoalFragment())
 
             R.id.navigation_leaderboard -> makeCurrentFragment(LeaderboardFragment())
