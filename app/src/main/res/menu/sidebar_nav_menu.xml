@@ -3,19 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item
-        android:id="@+id/leaderboard"
-        android:icon="@drawable/baseline_bar_chart_24"
-        android:title="Leaderboard"/>
+        <!-- Group for general navigation items -->
+        <group android:checkableBehavior="single" >
+                <item
+                    android:id="@+id/navigation_reports"
+                    android:title="Reports"
+                    android:icon="@drawable/baseline_home"
+                    android:checked="true"/>
+                <item
+                    android:id="@+id/navigation_tasks"
+                    android:title="Tasks"
+                    android:icon="@drawable/baseline_check"
+                    android:checked="true"/>
+                <item
+                    android:id="@+id/navigation_calendar"
+                    android:title="Calendar"
+                    android:icon="@drawable/baseline_calendar"/>
+                <item
+                    android:id="@+id/navigation_categories"
+                    android:title="Categories"
+                    android:icon="@drawable/baseline_categories"/>
+                <item
+                    android:id="@+id/navigation_goal"
+                    android:title="Goals"
+                    android:icon="@drawable/baseline_access_time"/>
+        </group>
 
-    <item
-        android:id="@+id/goal"
-        android:icon="@drawable/baseline_access_time"
-        android:title="Goal"/>
-    <item
-        android:id="@+id/pomodoro"
-        android:icon="@drawable/baseline_access_time"
-        android:title="Pomodoro"/>
+        <!-- Group for Leaderboard and Settings -->
+        <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/navigation_leaderboard"
+                    android:title="Leaderboard"
+                    android:icon="@drawable/baseline_bar_chart_24"/>
+                <item
+                    android:id="@+id/navigation_settings"
+                    android:title="Settings"
+                    android:icon="@drawable/baseline_settings"/>
+        </group>
 
+        <!-- Group for Logout -->
+        <group android:checkableBehavior="none">
+                <item
+                    android:id="@+id/navigation_logout"
+                    android:title="Logout"
+                    android:icon="@drawable/baseline_logout_24"/>
+        </group>
 
 </menu>
