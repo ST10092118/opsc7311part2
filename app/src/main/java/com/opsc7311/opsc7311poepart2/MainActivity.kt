@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val isLoggedIn = checkLoginStatus()
 
         if (isLoggedIn) {
-//            setupBottomNavigation()
+            setupBottomNavigation()
             setupMainMenu()
         } else {
             redirectToRegisterActivity()
@@ -73,33 +73,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         else false
     }
 
-//    private fun setupBottomNavigation() {
-//        // This function was adapted from Youtube
-//        // https://www.youtube.com/watch?v=Chso6xrJ6aU
-//        // Stevdza-San
-//        // https://www.youtube.com/@StevdzaSan
-//
-//        // Default homepage/fragment when app launches
-//        makeCurrentFragment(ReportsFragment())
-//
-//        // Code for when a different button is pressed on the navigation menu
-//        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
-//            when (menuItem.itemId) {
-//                R.id.reports -> makeCurrentFragment(ReportsFragment())
-//                R.id.calender -> makeCurrentFragment(CalendarFragment())
-//                //R.id.reports -> makeCurrentFragment(GoalFragment())
-//                R.id.categories -> makeCurrentFragment(CategoriesFragment())
-//                R.id.create -> makeCurrentFragment(TimesheetEntryFragment())
-//                R.id.logout -> {
-//                    mAuth.signOut()
-//                    redirectToMain()
-//                }
-//                else -> {
-//                }
-//            }
-//            true
-//        }
-//    }
+    private fun setupBottomNavigation() {
+        // This function was adapted from Youtube
+        // https://www.youtube.com/watch?v=Chso6xrJ6aU
+        // Stevdza-San
+        // https://www.youtube.com/@StevdzaSan
+
+        // Default homepage/fragment when app launches
+        makeCurrentFragment(ReportsFragment())
+
+        // Code for when a different button is pressed on the navigation menu
+        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.reports -> makeCurrentFragment(ReportsFragment())
+                R.id.calender -> makeCurrentFragment(CalendarFragment())
+                //R.id.reports -> makeCurrentFragment(GoalFragment())
+                R.id.categories -> makeCurrentFragment(CategoriesFragment())
+                R.id.create -> makeCurrentFragment(TimesheetEntryFragment())
+                R.id.logout -> {
+                    mAuth.signOut()
+                    redirectToMain()
+                }
+                else -> {
+                }
+            }
+            true
+        }
+    }
 
     private fun redirectToRegisterActivity() {
         startActivity(Intent(this, RegisterLoginActivity::class.java))
