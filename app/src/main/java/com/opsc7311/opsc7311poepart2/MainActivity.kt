@@ -21,6 +21,8 @@ import com.opsc7311.opsc7311poepart2.fragments.CreateTaskFragment
 import com.opsc7311.opsc7311poepart2.fragments.EntriesFragment
 import com.opsc7311.opsc7311poepart2.fragments.GoalFragment
 import com.opsc7311.opsc7311poepart2.fragments.LeaderboardFragment
+import com.opsc7311.opsc7311poepart2.fragments.PomodoroFragment
+import com.opsc7311.opsc7311poepart2.fragments.PomodoroTimesheetFragment
 import com.opsc7311.opsc7311poepart2.fragments.ReportsFragment
 import com.opsc7311.opsc7311poepart2.fragments.TimesheetEntryFragment
 
@@ -121,6 +123,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when(menuItem.itemId){
             R.id.leaderboard -> makeCurrentFragment(LeaderboardFragment())
             R.id.goal -> makeCurrentFragment(GoalFragment())
+            R.id.pomodoro -> makeCurrentFragment(PomodoroTimesheetFragment())
 
         }
         drawerLayout.closeDrawer(GravityCompat.START)

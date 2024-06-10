@@ -9,18 +9,13 @@
         android:title="Leaderboard"/>
 
     <item
-        android:id="@+id/calender"
-        android:icon="@drawable/baseline_calendar"
-        android:title="Entries"/>
-
-    <item
         android:id="@+id/goal"
         android:icon="@drawable/baseline_access_time"
         android:title="Goal"/>
     <item
-        android:id="@+id/categories"
-        android:icon="@drawable/baseline_categories"
-        android:title="Categories"/>
+        android:id="@+id/pomodoro"
+        android:icon="@drawable/baseline_access_time"
+        android:title="Pomodoro"/>
 
 
 </menu>
