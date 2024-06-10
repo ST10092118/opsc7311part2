@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="ui_settings"
+        android:title="UI Settings">
+        <ListPreference
+            android:key="theme"
+            android:title="Theme"
+            android:summary="Choose your theme"
+            android:entries="@array/theme_options"
+            android:entryValues="@array/theme_values"
+            android:defaultValue="system"
+            android:icon="@drawable/baseline_color_lens"/>
+    </PreferenceCategory>
+
+<!--    <PreferenceCategory-->
+<!--        android:key="backup_restore"-->
+<!--        android:title="Backup and Restore">-->
+<!--        <Preference-->
+<!--            android:key="delete_profile"-->
+<!--            android:title="Delete Profile"-->
+<!--            android:summary="Delete your profile"-->
+<!--            android:icon="@drawable/baseline_delete" />-->
+<!--    </PreferenceCategory>-->
+
+    <PreferenceCategory
+        android:title="Credits">
+
+        <Preference
+            android:key="dev_one"
+            android:title="Malik Fahad Mannan"
+            android:summary="Tech Lead: ST10091422"/>
+
+        <Preference
+            android:key="dev_two"
+            android:title="Semeshan Thaver"
+            android:summary="UI/UX Designer: ST10092118"/>
+
+        <Preference
+            android:key="dev_three"
+            android:title="Thivar Govender"
+            android:summary="Tester: ST10052616"/>
+
+        <Preference
+            android:key="dev_four"
+            android:title="Thato Sebelemetja"
+            android:summary="DevOps: ST10067544"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

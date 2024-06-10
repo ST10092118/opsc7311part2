@@ -30,9 +30,9 @@ class TimesheetEntriesAdapter(private val onItemClick: (Timesheet, Category) -> 
         "Blue" to R.color.blue,
         "Green" to R.color.green,
         "Yellow" to R.color.yellow,
-        "Orange" to R.color.primary,
-        "Black" to R.color.black,
-        "Grey" to R.color.grey,
+        "Orange" to R.color.theme_primary,
+        "Black" to R.color.theme_on_primary_container,
+        "Grey" to R.color.theme_on_primary_container,
         "Purple" to R.color.purple
     )
 
@@ -65,7 +65,7 @@ class TimesheetEntriesAdapter(private val onItemClick: (Timesheet, Category) -> 
         val originalColor = if (categoryBackgroundColor != null) {
             ContextCompat.getColor(holder.itemView.context, categoryBackgroundColor)
         } else {
-            ContextCompat.getColor(holder.itemView.context, R.color.primary) // Set a default color
+            ContextCompat.getColor(holder.itemView.context, R.color.theme_primary) // Set a default color
         }
 
         holder.timesheetName.text = timesheet.name

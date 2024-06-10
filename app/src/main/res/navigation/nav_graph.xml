@@ -2,27 +2,35 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    android:id="@+id/navigation_root"
+    app:startDestination="@id/navigation_tasks">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.opsc7311.opsc7311poepart2.activities.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" >
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+        android:id="@+id/navigation_tasks"
+        android:name="com.opsc7311.opsc7311poepart2.fragments.EntriesFragment"
+        android:label="Tasks"
+        tools:layout="@layout/fragment_entries"/>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.opsc7311.opsc7311poepart2.activities.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second" >
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        android:id="@+id/navigation_calendar"
+        android:name="com.opsc7311.opsc7311poepart2.fragments.CalendarFragment"
+        android:label="Calendar"
+        tools:layout="@layout/fragment_calendar"/>
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="com.opsc7311.opsc7311poepart2.fragments.CategoriesFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_categories"/>
+    <fragment
+        android:id="@+id/navigation_goal"
+        android:name="com.opsc7311.opsc7311poepart2.fragments.ReportsFragment"
+        android:label="Goal"
+        tools:layout="@layout/fragment_goal"/>
+    <fragment
+        android:id="@+id/navigation_leaderboard"
+        android:name="com.opsc7311.opsc7311poepart2.fragments.LeaderboardFragment"
+        tools:layout="@layout/fragment_leaderboard"/>
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.opsc7311.opsc7311poepart2.SettingsFragment"
+        tools:layout="@xml/preferences"/>
 </navigation>

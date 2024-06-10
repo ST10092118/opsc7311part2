@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+<!--Code for the bottom navigation menu-->
     <item
         android:id="@+id/reports"
         android:icon="@drawable/baseline_bar_chart_24"
-        android:title="Entries"/>
+        android:title="Reports"/>
 
     <item
         android:id="@+id/calender"
         android:icon="@drawable/baseline_calendar"
-        android:title="Entries"/>
+        android:title="Calendar"/>
 
     <item
         android:id="@+id/create"
         android:icon="@drawable/baseline_add_24"
-        android:title="Reports"/>
+        android:title="Add Task"/>
     <item
         android:id="@+id/categories"
         android:icon="@drawable/baseline_categories"
         android:title="Categories"/>
-
-
 
     <item
         android:id="@+id/logout"

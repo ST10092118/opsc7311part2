@@ -128,7 +128,7 @@ class ReportsFragment : Fragment() {
         }
 
         val dataSet = BarDataSet(entries, if (timePeriod == "week") "Weekly Hours" else "Monthly Hours")
-        dataSet.color = ContextCompat.getColor(requireContext(), R.color.primary)
+        dataSet.color = ContextCompat.getColor(requireContext(), R.color.theme_primary)
         dataSet.valueTextColor = ContextCompat.getColor(requireContext(), R.color.blue)
 
         val barData = BarData(dataSet)
@@ -170,7 +170,7 @@ class ReportsFragment : Fragment() {
         // Add primary color legend entry
         val primaryColorEntry = LegendEntry()
         primaryColorEntry.label = primaryColorLabel
-        primaryColorEntry.formColor = ContextCompat.getColor(requireContext(), R.color.primary)
+        primaryColorEntry.formColor = ContextCompat.getColor(requireContext(), R.color.theme_primary)
         primaryColorEntry.form = Legend.LegendForm.SQUARE
         legendEntries.add(primaryColorEntry)
 

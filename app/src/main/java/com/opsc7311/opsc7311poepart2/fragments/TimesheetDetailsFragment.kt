@@ -28,9 +28,9 @@ class TimesheetDetailsFragment : Fragment() {
         "Blue" to R.color.blue,
         "Green" to R.color.green,
         "Yellow" to R.color.yellow,
-        "Orange" to R.color.primary,
-        "Black" to R.color.black,
-        "Grey" to R.color.grey,
+        "Orange" to R.color.theme_primary,
+        "Black" to R.color.theme_on_primary_container,
+        "Grey" to R.color.theme_on_primary_container,
         "Purple" to R.color.purple
     )
 
@@ -74,7 +74,7 @@ class TimesheetDetailsFragment : Fragment() {
         val color = if (colorId != null) {
             ContextCompat.getColor(requireContext(), colorId)
         } else {
-            ContextCompat.getColor(requireContext(), R.color.black)
+            ContextCompat.getColor(requireContext(), R.color.theme_on_primary_container)
         }
 
         category.setTextColor(color)

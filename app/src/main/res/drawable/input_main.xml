@@ -9,6 +9,6 @@
     <!-- Define stroke (border) properties -->
     <stroke
         android:width="3dp"
-        android:color="@color/black" /> <!-- Stroke color and width, adjust as needed -->
+        android:color="@color/theme_on_primary_container" /> <!-- Stroke color and width, adjust as needed -->
 
 </shape>

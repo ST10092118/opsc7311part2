@@ -66,7 +66,7 @@
                 android:id="@+id/color_frame"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@color/white"
+                android:background="@color/theme_on_primary"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="20dp"/>
             <TextView

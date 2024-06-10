@@ -5,7 +5,7 @@
     <corners android:radius="800dp" /> <!-- Adjust the radius as per your preference -->
 
     <!-- Define background color -->
-    <solid android:color="@color/primary" />
+    <solid android:color="@color/theme_primary" />
     <size
         android:height="60dp" />
 </shape>

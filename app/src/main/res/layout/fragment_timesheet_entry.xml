@@ -16,7 +16,7 @@
         android:paddingVertical="4dp"
         android:layout_marginTop="20dp"
         android:hint="Name"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/theme_on_primary_container"
         />
 
     <LinearLayout
@@ -59,7 +59,7 @@
                 android:id="@+id/color_frame"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@color/white"
+                android:background="@color/theme_on_primary"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="20dp"/>
             <TextView
@@ -159,7 +159,7 @@
         android:maxLines="10"
         android:scrollbars="vertical"
         android:hint="Description"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/theme_on_primary_container"
         />
 
     <TextView

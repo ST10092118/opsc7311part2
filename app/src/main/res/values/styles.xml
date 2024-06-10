@@ -2,6 +2,9 @@
 <resources>
 
     <style name="saveButton">
-        <item name="colorPrimary">@color/primary
+        <item name="colorPrimary">@color/theme_primary
      </item></style>
+
+    <!-- Base application theme -->
+
 </resources>

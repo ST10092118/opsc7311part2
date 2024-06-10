@@ -27,9 +27,9 @@ class ColorAdapter(private val colorList: ArrayList<Int>,
         "Blue" to R.color.blue,
         "Green" to R.color.green,
         "Yellow" to R.color.yellow,
-        "Orange" to R.color.primary,
-        "Black" to R.color.black,
-        "Grey" to R.color.grey,
+        "Orange" to R.color.theme_primary,
+        "Black" to R.color.theme_on_primary_container,
+        "Grey" to R.color.theme_on_primary_container,
         "Purple" to R.color.purple
     )
 
@@ -51,7 +51,7 @@ class ColorAdapter(private val colorList: ArrayList<Int>,
         val color = if (colorId != null) {
             ContextCompat.getColor(holder.itemView.context, colorId)
         } else {
-            ContextCompat.getColor(holder.itemView.context, R.color.primary) // Set a default color
+            ContextCompat.getColor(holder.itemView.context, R.color.theme_primary) // Set a default color
         }
         holder.colorLayout.setBackgroundColor(color)
     }

@@ -53,9 +53,9 @@
         android:gravity="center"
         android:text="Login"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/theme_on_primary"
         android:textSize="17sp"
-        app:backgroundTint="@color/primary"
+        app:backgroundTint="@color/theme_primary"
         app:shapeAppearanceOverlay="@style/Button5" />
 
 </LinearLayout>

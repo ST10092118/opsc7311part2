@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="176dp"
     android:padding="16dp"
-    android:background="@color/white"
+    android:background="@color/theme_on_primary"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView

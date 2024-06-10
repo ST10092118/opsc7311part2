@@ -21,7 +21,8 @@
             android:theme="@style/Theme.Opsc7311PoePart2" />
         <activity
             android:name=".activities.RegisterDemoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Opsc7311PoePart2" />
         <activity
             android:name=".fragments.CategoriesFragment"
             android:exported="false" />
